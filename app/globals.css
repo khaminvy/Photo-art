@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #e9eaec;
+  @apply text-gray-500 m-6;
+}
+
+h1, h2 {
+  @apply font-bold text-primary text-lg;
+}
+
+main {
+  @apply max-w-5xl my-12 mx-auto px-8;
+}
+
+main > h2 {
+  @apply mb-4 pb-2 text-base;
+}
+
+p > a {
+  @apply text-primary underline;
+}
+
+/* nav style */
+
+nav {
+  @apply pb-4 border-b-2 border-gray-200 shadow-sm
+  flex items-center gap-5 justify-between
+  my-10 mx-auto
+  max-w-5xl;
+}
+
+nav > div {
+  @apply flex items-center gap-5 justify-around pr-2;
+}
+
+nav:hover {
+  @apply shadow-md;
+}
+
+nav a, nav span {
+  @apply text-gray-500;
+}
+
+nav a:hover {
+  @apply text-black;
+}
+
+/* Button style */
+button {
+  @apply py-4 px-3
+  rounded-sm
+  flex justify-center items-center gap-2
+  text-sm;
+}
+
+button:hover {
+  @apply bg-opacity-90;
+}
+
+.btn-primary {
+  @apply bg-primary text-white;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-900;
 }
