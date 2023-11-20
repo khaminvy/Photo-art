@@ -23,7 +23,8 @@ export default function Home() {
                 <Link href="/contact" className="btn-primary px-4 py-3">Get Contact</Link>
               </div>
             </div>
-            <div className="text-center hidden md:block rounded border border-spacing-1 border-green-300">
+            <div className="text-center hidden md:block 
+                  p-1 bg-slate-50 rounded-md">
               <Image
                   alt="Image Alt"
                   src="/my-girl.jpg"
