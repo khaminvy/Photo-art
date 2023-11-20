@@ -26,7 +26,7 @@ export default function Home() {
             <div className="text-center hidden md:block rounded border border-spacing-1 border-green-300">
               <Image
                   alt="Image Alt"
-                  src="/le-phan.jpg"
+                  src="/my-girl.jpg"
                   width={900}
                   height={700}
               />
