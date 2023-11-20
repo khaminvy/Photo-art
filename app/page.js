@@ -9,18 +9,18 @@ export default function Home() {
           <div className="grid md:grid-cols-2 md:gap-3">
             <div className="w-full text-center md:text-start">
               <h1>
-                <div className="text-8xl font-bold my-10 text-center">
+                <div className="text-8xl font-bold my-10 text-center drop-shadow-lg">
                    <p>Le Phan.</p>
                 </div>
                 <div className="text-4xl font-semibold text-center">
                    <p>Art Galerry.</p>
                 </div>
               </h1>
-              <p className="text-center">
+              <p className="text-center py-4">
                 This is a paragraph.
               </p>
-              <div className="text-center">
-                <Link href="/contact" className="btn-primary">Get Contact</Link>
+              <div className="text-center py-2">
+                <Link href="/contact" className="btn-primary px-4 py-3">Get Contact</Link>
               </div>
             </div>
             <div className="text-center hidden md:block rounded border border-spacing-1 border-green-300">
