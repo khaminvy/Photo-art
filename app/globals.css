@@ -83,6 +83,11 @@ button:hover {
   mb-0
 }
 
+.card h2 {
+  @apply font-bold text-blue-700 text-lg
+  mb-2
+}
+
 .card p {
   @apply my-4 text-sm leading-6;
 }
@@ -95,15 +100,15 @@ button:hover {
   text-xs font-semibold;
 }
 
-.pill-high {
+.pill.high {
   @apply bg-red-300 text-red-600;
 }
 
-.pill-medium {
+.pill.medium {
   @apply bg-blue-300 text-blue-600;
 }
 
-.pill-low {
+.pill.low {
   @apply bg-emerald-300 text-emerald-600;
 }
 
