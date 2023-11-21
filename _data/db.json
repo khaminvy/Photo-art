@@ -1,0 +1,68 @@
+{
+    "images": [
+      {
+        "id": 1,
+        "name": "My Girl",
+        "author": "PhanLe",
+        "style": "Oil",
+        "pho": "img/my-girl.jpg",
+        "price": "$200",
+        "availableUnits": 1
+      },
+      {
+        "id": 2,
+        "name": "Flower1",
+        "author": "Ductri",
+        "style": "Photo",
+        "pho": "img/flower1.jpg",
+        "price": "$100",
+        "availableUnits": 5
+      },
+      {
+        "id": 3,
+        "name": "Lake1",
+        "author": "HungDang",
+        "style": "Photo",
+        "pho": "img/lake1.jpg",
+        "price": "$150",
+        "availableUnits": 10
+      },
+      {
+        "id": 4,
+        "name": "My Angel",
+        "author": "PhanLe",
+        "style": "Oil",
+        "pho": "img/my-angel.jpg",
+        "price": "$80",
+        "availableUnits": 5
+      },
+      {
+        "id": 5,
+        "name": "Our-love",
+        "author": "PhanLe",
+        "style": "Oil",
+        "pho": "img/our-love.jpg",
+        "price": "$240",
+        "availableUnits": 2
+      },
+      {
+        "id": 6,
+        "name": "Lake2",
+        "author": "HungDang",
+        "style": "Photo",
+        "pho": "img/lake2.jpg",
+        "price": "$200",
+        "availableUnits": 0
+      },
+      {
+        "id": 7,
+        "name": "Flower2",
+        "author": "DucTri",
+        "style": "Photo",
+        "pho": "img/flower2.jpg",
+        "price": "$130",
+        "availableUnits": 3
+      }
+      
+    ]
+  }
