@@ -23,12 +23,12 @@ export default async function PhotoList() {
           <Link href={`/photos/${photo.id}`} key={photo.id}>
             <div className="card my-5">
               <div className="">
-                <Image
+                {photo.pho && <Image
                       alt={photo.pho}
                       src={`${photo.pho}`}
                       width={300}
                       height={340}
-                  />
+                  />}
                 <h2 className="text-center">{photo.name}</h2>
                 <h3 className="text-center">{photo.author}</h3>
               </div>

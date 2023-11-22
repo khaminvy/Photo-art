@@ -62,7 +62,13 @@
       "pho": "/img/flower2.jpg",
       "price": "$130",
       "availableUnits": 3
+    },
+    {
+      "name": "tha man",
+      "author": "man",
+      "style": "oil",
+      "user_email": "tv@yahoo.com",
+      "id": "gk4gldk"
     }
-    
   ]
 }

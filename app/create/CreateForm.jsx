@@ -1,18 +1,40 @@
 "use client"
 
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function CreateForm() {
-    // const router = useRouter()
+    const router = useRouter()
 
     const [name, setName] = useState('')
     const [author, setAuthor] = useState('')
     const [style, setStyle ] = useState("")
     const [isLoading, setIsLoading ] = useState(false)
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setIsLoading(true)
+
+        const photo = {
+            name, author, style, user_email: "tv@yahoo.com"
+        }
+
+        const res = await fetch('http://localhost:4000/images',
+            {
+                method: "POST",
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify(photo)
+            }
+        )
+
+        if (res.status === 201){
+            router.refresh()
+            router.push('/photos')
+        }
+    }
+
   return (
-    <form className="w-1/2">
+    <form className="w-1/2" onSubmit={handleSubmit}>
         <label>
             <span>Name:</span>
             <input 
