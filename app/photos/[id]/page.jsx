@@ -14,6 +14,8 @@ export async function generateStaticParams(){
   
 
 async function getPhoto(id){
+    //initate delay
+  await new Promise(resolve => setTimeout(resolve, 3000))
     const res = await fetch('http://localhost:4000/images/' + id, {
       next: {
         revalidate: 60

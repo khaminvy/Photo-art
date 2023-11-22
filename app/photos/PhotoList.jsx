@@ -2,6 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 async function getPhotos(){
+  //initate delay
+  await new Promise(resolve => setTimeout(resolve, 3000))
+
     const res = await fetch('http://localhost:4000/images', {
       next: {
         revalidate: 0
