@@ -21,7 +21,7 @@ export default async function PhotoList() {
             <div key={photo.id} className="">
               <Image
                     alt={photo.pho}
-                    src={`/${photo.pho}`}
+                    src={`${photo.pho}`}
                     width={300}
                     height={340}
                 />
