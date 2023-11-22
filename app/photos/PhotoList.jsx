@@ -9,7 +9,6 @@ async function getPhotos(){
     })
     return res.json() 
 } 
-
 export default async function PhotoList() {
   const photos = await getPhotos()
  // console.log(photos)

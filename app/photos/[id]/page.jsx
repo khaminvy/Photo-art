@@ -1,11 +1,27 @@
 import Image from "next/image"
+import { notFound } from "next/navigation"
+export const dynamicParams = true
+
+export async function generateStaticParams(){
+    const res = await fetch('http://localhost:4000/images')
+
+    const photos = await res.json()
+
+    return photos.map((photo)=>({
+        id: photo.id.toString()
+    }))
+}
+  
 
 async function getPhoto(id){
     const res = await fetch('http://localhost:4000/images/' + id, {
       next: {
-        revalidate: 0
+        revalidate: 60
       }
     })
+    if(!res.ok){
+        notFound()
+    }
     return res.json() 
 } 
 
