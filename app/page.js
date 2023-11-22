@@ -27,7 +27,7 @@ export default function Home() {
                   p-1 bg-slate-50 rounded-md">
               <Image
                   alt="Image Alt"
-                  src="/my-girl.jpg"
+                  src="/img/my-girl.jpg"
                   width={900}
                   height={700}
               />

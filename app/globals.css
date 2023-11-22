@@ -70,7 +70,7 @@ button:hover {
 
 /* Cards styles */
 .card {
-  @apply bg-white
+  @apply bg-slate-50
   shadow-sm
   rounded-md
   py-3 px-4 my-4
@@ -79,12 +79,12 @@ button:hover {
 }
 
 .card h3 {
-  @apply font-bold text-gray-700 text-sm
+  @apply font-bold text-gray-700 text-sm text-opacity-75
   mb-0
 }
 
 .card h2 {
-  @apply font-bold text-blue-700 text-lg
+  @apply font-bold text-blue-700 text-lg text-opacity-75
   mb-2
 }
 

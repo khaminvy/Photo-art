@@ -29,7 +29,7 @@ export default function About() {
                             <div className="text-center py-5">
                                 <Image
                                     alt="Le Phan"
-                                    src="/le-phan.jpg"
+                                    src="/img/le-phan.jpg"
                                     width={500}
                                     height={300}
                                 />
