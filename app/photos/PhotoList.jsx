@@ -11,7 +11,7 @@ async function getPhotos(){
 
 export default async function PhotoList() {
   const photos = await getPhotos()
-  console.log(photos)
+ // console.log(photos)
   return (
     <>
       <div className="grid grid-cols-3 gap-1">

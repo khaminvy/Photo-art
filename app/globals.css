@@ -73,19 +73,20 @@ button:hover {
   @apply bg-slate-50
   shadow-sm
   rounded-md
-  py-3 px-4 my-4
+  py-0 px-0 my-4
   relative
   overflow-hidden;
 }
 
 .card h3 {
-  @apply font-bold text-gray-700 text-sm text-opacity-75
-  mb-0
+  @apply font-bold text-gray-700 text-lg text-opacity-75
+  mb-0;
 }
 
 .card h2 {
-  @apply font-bold text-blue-700 text-lg text-opacity-75
-  mb-2
+  /* @apply font-bold text-blue-700 text-2xl text-opacity-75 */
+  @apply font-bold text-2xl text-opacity-75
+  mb-2;
 }
 
 .card p {
