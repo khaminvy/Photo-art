@@ -158,3 +158,11 @@ form button {
     max-w-fit
     my-4 mx-auto;
 }
+
+.link {
+  @apply bg-slate-50 px-2;
+}
+
+.active {
+  @apply bg-primary text-slate-50;
+}
