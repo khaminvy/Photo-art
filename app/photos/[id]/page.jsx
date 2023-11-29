@@ -34,12 +34,12 @@ export default async function PhotoDetails({params}) {
     <div className="card mx-auto w-3/5">
             <div key={photo.id} className="flex h-auto">
                <div className="w-3/5 overflow-hidden rounded shadow">
-                    <Image
-                        alt={photo.pho}
-                        src={`${photo.pho}`}
-                        width={600}
-                        height={400}
-                    />
+               {photo.name && <Image
+                      alt={photo.name}
+                      src={`/img/${photo.name}.jpg`}
+                      width={600}
+                      height={500}
+                  />}
                </div>
                 <div className="w-2/5 flex justify-center items-center px-4 text-center">
                     <div>
