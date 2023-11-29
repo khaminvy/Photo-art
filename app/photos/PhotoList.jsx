@@ -21,7 +21,7 @@ export default async function PhotoList() {
       {photos?.map((photo)=>{ 
         return (
           <Link href={`/photos/${photo.id}`} key={photo.id}>
-            <div className="card my-5">
+            <div className="card my-5 relative">
               <div className="">
                 {photo.name && <Image
                       alt={photo.name}
@@ -29,8 +29,8 @@ export default async function PhotoList() {
                       width={300}
                       height={340}
                   />}
-                <h2 className="text-center">{photo.name}</h2>
-                <h3 className="text-center">{photo.author}</h3>
+                <h2 className="text-center absolute bottom-3 left-2 text-white">{photo.name}</h2>
+                <h3 className="text-center absolute top-2 right-5 text-red-500 pr-6">{photo.author}</h3>
               </div>
             </div>
           </Link>

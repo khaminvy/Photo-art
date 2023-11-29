@@ -79,13 +79,13 @@ button:hover {
 }
 
 .card h3 {
-  @apply font-bold text-gray-700 text-lg text-opacity-75
+  @apply font-bold text-lg text-opacity-75
   mb-0;
 }
 
 .card h2 {
   /* @apply font-bold text-blue-700 text-2xl text-opacity-75 */
-  @apply font-bold text-2xl text-opacity-75
+  @apply font-bold text-2xl text-opacity-100
   mb-2;
 }
 
