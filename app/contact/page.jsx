@@ -74,7 +74,7 @@ export default function Contact() {
             />
           </label>
           {errors.fname && (
-            <p className="text-primary">{errors.fname.message}</p>
+            <p className="error">{errors.fname.message}</p>
           )}
                             
           <label>
@@ -96,7 +96,7 @@ export default function Contact() {
             })}
             />
             {errors.lname && (
-              <p className="text-primary">{errors.lname.message}</p>
+              <p className="error">{errors.lname.message}</p>
             )}
           </label>
           <label>
@@ -117,7 +117,7 @@ export default function Contact() {
               })}
             />
             {errors.email && (
-              <p className="text-primary">{errors.email.message}</p>
+              <p className="error">{errors.email.message}</p>
             )}
           </label>
           <label>

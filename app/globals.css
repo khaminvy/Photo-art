@@ -71,9 +71,9 @@ button:hover {
 /* Cards styles */
 .card {
   @apply bg-slate-50
-  shadow-sm
+  shadow-md shadow-green-400
   rounded-md
-  py-0 px-0 my-4
+  py-0 px-0
   relative
   overflow-hidden;
 }
@@ -110,7 +110,7 @@ button:hover {
 }
 
 .pill.low {
-  @apply bg-emerald-300 text-emerald-600;
+  @apply bg-emerald-300 text-emerald-600 overflow-hidden;
 }
 
 .card .pill {

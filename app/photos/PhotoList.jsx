@@ -17,20 +17,20 @@ export default async function PhotoList() {
  // console.log(photos)
   return (
     <>
-      <div className="grid grid-cols-3 gap-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-2 bg-slate-600 rounded-md shadow-md shadow-gray-500">
       {photos?.map((photo)=>{ 
         return (
           <Link href={`/photos/${photo.id}`} key={photo.id}>
-            <div className="card my-5 relative">
-              <div className="">
+            <div className="">
+              <div className="card relative">
                 {photo.name && <Image
                       alt={photo.name}
                       src={`/img/${photo.name}.jpg`}
-                      width={300}
-                      height={340}
+                      width={800}
+                      height={100}
                   />}
-                <h2 className="text-center absolute bottom-3 left-2 text-white">{photo.name}</h2>
-                <h3 className="text-center absolute top-2 right-5 text-red-500 pr-6">{photo.author}</h3>
+                <h4 className="text-center text-lg font-semibold absolute bottom-6 left-10 text-white">{photo.name}</h4>
+                <h4 className="text-center absolute top-2 left-2 sm:right-5 text-red-500 pr-6">{photo.author}</h4>
               </div>
             </div>
           </Link>
