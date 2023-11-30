@@ -31,7 +31,7 @@ export default async function PhotoDetails({params}) {
     const id = params.id
     const photo = await getPhoto(id)
   return (
-    <div className="card mx-auto w-3/5">
+    <div className="card mx-auto w-3/5 shadow-md shadow-red-400">
             <div key={photo.id} className="flex h-auto">
                <div className="w-3/5 overflow-hidden rounded shadow">
                {photo.name && <Image
@@ -41,7 +41,7 @@ export default async function PhotoDetails({params}) {
                       height={500}
                   />}
                </div>
-                <div className="w-2/5 flex justify-center items-center px-4 text-center">
+                <div className="w-2/5 flex justify-center items-center px-4 text-center bg-slate-50">
                     <div>
                         <h2 className="pb-3">{photo.name}</h2>
                         <h3 className="pb-2">{photo.author}</h3>
