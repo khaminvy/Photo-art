@@ -50,7 +50,7 @@ nav a:hover {
 
 /* Button style */
 button {
-  @apply py-4 px-3
+  @apply py-2 px-2
   rounded-sm
   flex justify-center items-center gap-2
   text-sm;
@@ -65,7 +65,7 @@ button:hover {
 }
 
 .btn-secondary {
-  @apply bg-gray-200 text-gray-900;
+  @apply bg-gray-500 text-gray-900;
 }
 
 /* Cards styles */
@@ -138,7 +138,7 @@ form textarea,
 form select {
   @apply 
     block 
-    mt-2 my-4 px-2 py-1 
+    mt-2 my-2 px-2 py-1 
     rounded-sm w-full;
 }
 form button {
@@ -148,9 +148,9 @@ form button {
 /* feedback styles */
 .error {
   @apply 
-    border-2 
-    border-red-500 
-    bg-red-300
+    border-none 
+    /* border-red-500 
+    bg-red-300 */
     text-red-800 
     py-1 px-2 
     rounded-sm

@@ -14,7 +14,6 @@ async function getPhotos(){
 } 
 export default async function PhotoList() {
   const photos = await getPhotos()
- // console.log(photos)
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-2 bg-slate-600 rounded-md shadow-md shadow-gray-500">

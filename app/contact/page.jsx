@@ -3,57 +3,56 @@
 import { useForm } from "react-hook-form"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { DevTool } from "@hookform/devtools"
 
 export default function Contact() {
 
   const router = useRouter()
   
-  const { register, handleSubmit, formState: {errors} } = useForm({
-    mode: 'onBlur',
-    defaultValues: {
-        fname: "",
-        lname: "",
-        email: "",
-        message: ""
-    }
-});
+  const { register, handleSubmit, formState: {errors, isDirty, isValid, isSubmitting}} = useForm({
+    defaultValues:{
+      fname: "",
+      lname: "",
+      email: "",
+      message: ""
+    }, 
+    mode: "onBlur"
+  });
+
   let [state, setState] = useState({
     fname: '',
     lname: '',
-    email: '',
-    message: ''
+    email: ''
   })
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = data => {
-    let message = {
-            
-      ...state
-    };  
+  const onError = (errors) => {
+    console.log("Form error:", errors)
+    console.log("isDirty:", isDirty)
+  }
 
-    console.log(message)
-    setState({
-        fname: '',
-        lname: '',
-        email: '',
-        message: ''     
-    })    
-    setIsLoading(true);
-    fetch('http://localhost:4000/message',{
+  const onSubmit = async (data) => {
+
+    let message = {...data};  
+    setState({fname: '', lname: '', email: '', message: '' })  
+
+    const res = await fetch('http://localhost:4000/message',{
       method: 'POST',
       headers: { "content-Type": "application/json"},
       body: JSON.stringify(message)
-    }).then(()=>{
-      setIsLoading(false);
+    })
+
+
+    if (res.status === 201){
       router.refresh()
       router.push('/photos')
-     })
+     }
   }
 
   return (
    <main>
         <h2 className="text-center">Contact Page</h2>
-        <form className="w-1/2" onSubmit={handleSubmit(onSubmit)}> 
+        <form className="w-1/2" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
           <label>
             <span>First Name:</span>
             <input 
@@ -61,19 +60,16 @@ export default function Contact() {
               placeholder="First Name"
               {...register("fname", {
                       required: 'First name is required',
-                      minLength: {
-                          value: 3,
-                          message: "First name is more than 2 characters,"
-                      }
                   }
               )}
               value={state.fname}
+              autoComplete="off"
               onChange={(e)=> setState((prevState)=>{
                   return {...prevState, fname: e.target.value}
               })}
             />
           </label>
-          {errors.fname && (
+          {errors?.fname && (
             <p className="error">{errors.fname.message}</p>
           )}
                             
@@ -84,18 +80,15 @@ export default function Contact() {
               placeholder="Last Name"
               {...register("lname", {
                 required: 'Last name is required',
-                minLength: {
-                    value: 3,
-                    message: "last name is more than 2 characters,"
-                }
               }
             )}
             value={state.lname}
+            autoComplete="off"
             onChange={(e)=> setState((prevState)=>{
                 return {...prevState, lname: e.target.value}
             })}
             />
-            {errors.lname && (
+            {errors?.lname && (
               <p className="error">{errors.lname.message}</p>
             )}
           </label>
@@ -105,7 +98,6 @@ export default function Contact() {
               type="email" 
               placeholder="email here."
               {...register("email", {
-                  required:"email is required.",
                   pattern:{
                     value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
                     message: 'Email is not valid'
@@ -116,8 +108,8 @@ export default function Contact() {
                 return {...prevState, email: e.target.value}
               })}
             />
-            {errors.email && (
-              <p className="error">{errors.email.message}</p>
+            {errors?.email && (
+              <p className="error">{errors?.email?.message}</p>
             )}
           </label>
           <label>
@@ -134,9 +126,9 @@ export default function Contact() {
               })}
             />
           </label>
-          {!isLoading && <button type="submit" className="btn btn-primary">Submit</button>}
-          {isLoading && <button type="submit" className="btn btn-primary" disabled>Submit</button>}
+          <button type="submit" disabled={isDirty || !isValid} className="btn-secondary">submit</button>
         </form>
+        {/* <DevTool control={control}/> */}
    </main>
   )
 }

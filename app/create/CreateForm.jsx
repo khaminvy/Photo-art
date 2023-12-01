@@ -24,6 +24,7 @@ export default function CreateForm() {
         setIsLoading(true)
 
 
+
         if(selectedFile){
             const formData = new FormData()
             formData.set('file', selectedFile, `${name}.jpg`)
@@ -41,7 +42,6 @@ export default function CreateForm() {
             name, author, style, price, avaiableUnits
         }
 
-        console.log(photo)
 
         const res = await fetch('http://localhost:4000/images',
             {
