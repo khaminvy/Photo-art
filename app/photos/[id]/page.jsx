@@ -1,30 +1,35 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
 export const dynamicParams = true
+import axios from "axios"
+import connecMongoDB from "@/app/lib/mongodb"
+import Photo from "@/app/models/model"
 
-export async function generateStaticParams(){
-    const res = await fetch('http://localhost:4000/images')
+// export async function generateStaticParams(){
+//     const res = await axios.get('http://localhost:4000/images')
+//     console.log(res.data)
 
-    const photos = await res.json()
+//     // const photos = await res.data
 
-    return photos.map((photo)=>({
-        id: photo.id.toString()
-    }))
-}
+//     // return photos.map((photo)=>({
+//     //     id: photo.id
+//     // }))
+//     return 1
+
+// }
   
 
 async function getPhoto(id){
-    //initate delay
   await new Promise(resolve => setTimeout(resolve, 3000))
-    const res = await fetch('http://localhost:4000/images/' + id, {
-      next: {
-        revalidate: 60
-      }
-    })
-    if(!res.ok){
-        notFound()
-    }
-    return res.json() 
+  await connecMongoDB()
+  const photo =  await Photo.findOne({_id: id})
+  // const res = await axios.get(`http://localhost:3000/api/photos`)
+  //console.log(res)
+  //   if(!res.ok){
+  //       notFound()
+  //   }
+  //   return res.data
+  return photo
 } 
 
 export default async function PhotoDetails({params}) {
@@ -32,18 +37,18 @@ export default async function PhotoDetails({params}) {
     const photo = await getPhoto(id)
   return (
     <div className="card mx-auto w-3/5 shadow-md shadow-red-400">
-            <div key={photo.id} className="flex h-auto">
+            <div key={photo._id} className="flex h-auto">
                <div className="w-3/5 overflow-hidden rounded shadow">
-               {photo.name && <Image
-                      alt={photo.name}
-                      src={`/img/${photo.name}.jpg`}
+               {photo.photoName && <Image
+                      alt={photo.photoName}
+                      src={`/img/${photo.photoName}.jpg`}
                       width={600}
                       height={500}
                   />}
                </div>
                 <div className="w-2/5 flex justify-center items-center px-4 text-center bg-slate-50">
                     <div>
-                        <h2 className="pb-3">{photo.name}</h2>
+                        <h2 className="pb-3">{photo.photoName}</h2>
                         <h3 className="pb-2">{photo.author}</h3>
                         <div className="flex justify-around">
                             <p className="p-2">Price: {photo.price}</p>
