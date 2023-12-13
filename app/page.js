@@ -31,6 +31,7 @@ export default function Home() {
                   src="/img/my-girl.jpg"
                   width={900}
                   height={700}
+                  priority={true}
               />
             </div>
           </div>

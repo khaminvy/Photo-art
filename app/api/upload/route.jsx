@@ -4,8 +4,6 @@ import { join } from 'path'
 
 export async function POST(request) {
     const data = await request.formData()
-    //console.log(data)
-
     const file = data.get('file')
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)

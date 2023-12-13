@@ -16,7 +16,7 @@ export default function About() {
                             <div className="card-body text-center py-4">
                                 <h3>Thanh van Pham</h3>
                                 <p className="leading-6">Video Creator</p>
-                                <p className="mx-5 hidden lg:block">
+                                <p className="mx-5 lg:block">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
                                 </p>
                             </div>
@@ -27,17 +27,18 @@ export default function About() {
                         <div className="card">
                             <div className="text-center text-primary">Main Character.</div>
                             <div className="text-center py-5">
-                                <Image
-                                    alt="Le Phan"
-                                    src="/img/le-phan.jpg"
-                                    width={500}
-                                    height={300}
-                                />
-                                <h3>Phan Le</h3>
-                                <p className="leading-10">Paintings Author</p>
-                                <p className="mx-5 hidden lg:block">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
-                                </p>
+                            <Image className="w-auto h-auto"
+                                alt="Image Alt"
+                                src="/img/my-girl.jpg"
+                                width={300}
+                                height={250}
+                                priority={true}
+                            />
+                            <h3>Phan Le</h3>
+                            <p className="leading-10">Paintings Author</p>
+                            <p className="mx-5 lg:block">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
+                            </p>
                             </div>
                         </div>
                     </div>
@@ -47,7 +48,7 @@ export default function About() {
                             <div className="text-center py-4">
                                 <h3 className="card-title">Duc Tri</h3>
                                 <p className="leading-6">Photographer.</p>
-                                <p className="mx-5 hidden lg:block">
+                                <p className="mx-5 lg:block">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
                                 </p>
                             </div>
