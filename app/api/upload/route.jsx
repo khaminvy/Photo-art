@@ -7,6 +7,7 @@ export async function POST(request) {
     const file = data.get('file')
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
+    console.log(file.name)
     const path = join("public/img/",file.name)
     await writeFile(path, buffer)
 

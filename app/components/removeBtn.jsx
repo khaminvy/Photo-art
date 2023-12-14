@@ -2,7 +2,7 @@
 import { HiOutlineTrash } from "react-icons/hi";
 import { useRouter } from "next/navigation"
 
-export default function RemoveBtn({id}) {
+export default function RemoveBtn({id, photoId}) {
   const router = useRouter()
 
   const removePhoto = async () => {
@@ -14,6 +14,23 @@ export default function RemoveBtn({id}) {
       })
 
       if (res.status === 200){
+
+        const formData = new FormData()
+            
+        formData.set('filename',`${photoId}.jpg`)
+            
+        const res = await fetch('/api/delete', {
+            method: 'DELETE',
+            body: formData
+        })
+
+
+        if (res.status === 201){
+          router.refresh()
+          router.push('/photos')
+        }
+
+
         router.push('/photos')
         router.refresh()
       }

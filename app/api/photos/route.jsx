@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 
 
 export async function POST (request){
-    const { photoName, author, style, price, avaiableUnits} = await request.json();
+    const { photoId, photoName, author, style, price, avaiableUnits} = await request.json();
     await connecMongoDB()
-    await Photo.create({photoName, author, style, price, avaiableUnits})
+    await Photo.create({photoId, photoName, author, style, price, avaiableUnits})
     return NextResponse.json({message: "Photo is created"}, {status: 201})
 }
 

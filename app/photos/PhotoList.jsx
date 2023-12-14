@@ -6,21 +6,21 @@ async function getPhotos(){
  
 
   //initate delay
-    await new Promise(resolve => setTimeout(resolve, 4000))
-    try {
-      const res = await fetch('http://localhost:3000/api/photos', {
-        next:{
-          revalidate: 0
-        }
-      })
-      if(!res.ok){
-        throw new Error("Failed to fecth Photos")
+  await new Promise(resolve => setTimeout(resolve, 4000))
+  try {
+    const res = await fetch('http://localhost:3000/api/photos', {
+      next:{
+        revalidate: 0
       }
-
-      return res.json()
-    } catch (error) {
-      console.log("Error loading photos", error)
+    })
+    if(!res.ok){
+      throw new Error("Failed to fecth Photos")
     }
+
+    return res.json()
+  } catch (error) {
+    console.log("Error loading photos", error)
+  }
 } 
 export default async function PhotoList() {
   const {photos} = await getPhotos()
@@ -32,9 +32,9 @@ export default async function PhotoList() {
             <Link href={`/photos/${photo._id}`} key={photo._id}>
               <div className="">
                 <div className="card relative">
-                  {photo.photoName && <Image
+                  {photo.photoId && <Image
                         alt={photo.photoName}
-                        src={`/img/${photo.photoName}.jpg`}
+                        src={`/img/${photo.photoId}.jpg`}
                         width={800}
                         height={100}
                         priority={true}

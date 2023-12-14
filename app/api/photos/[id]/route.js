@@ -4,11 +4,10 @@ import { NextResponse } from "next/server"
 
 export async function PUT(request, {params}){
     const { id } = params
-    console.log("id inside PUT:", id)
     const { photoName, author, style, price, avaiableUnits } = await request.json()
     await connecMongoDB()
     await Photo.findByIdAndUpdate(id, { author, style, price, avaiableUnits })
-    return NextResponse.json({message: "Photo updated"}, {status: 200})
+    return NextResponse.json({message: "Photo updated"}, {status: 201})
 }
 
 

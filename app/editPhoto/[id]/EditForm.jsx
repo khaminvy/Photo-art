@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-// import { writeFile, readFile, readdir } from 'fs/promises'
 
 export default function EditForm({id, photoName, author, style, price, avaiableUnits}) {
     const router = useRouter()
@@ -24,10 +23,6 @@ export default function EditForm({id, photoName, author, style, price, avaiableU
 
         setIsLoading(true)
 
-        // fs.readdirSync(__dirname + "/public/img").forEach(file => { 
-        //     console.log(file); 
-        // }); 
-
         const photo = { 
             photoName,
             author: data.author,
@@ -42,10 +37,10 @@ export default function EditForm({id, photoName, author, style, price, avaiableU
                 body: JSON.stringify(photo)
             }
         )
-        //if(res.status === 201){
+        if(res.status === 201){
             router.push('/photos')
             router.refresh()
-       // }
+        }
     }
 
   return (

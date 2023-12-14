@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose"
 
 const photoSchema = new Schema(
     {
+        photoId: String,
         photoName: String,
         author: String,
         style: String,

@@ -1,4 +1,6 @@
 import EditForm from "./EditForm"
+import { join } from "path"
+import { readFileSync, readdirSync } from "fs"
 
 const getPhotoById = async (id) => {
   try {
@@ -18,8 +20,9 @@ export default async function EditPhoto({params}) {
   const {id} = params
   const {photo} =  await getPhotoById(id)
   const {photoName, author, style, price, avaiableUnits} = photo
+ 
   return (
-    <main>
+    <main> 
         <h2 className="text-primary text-center"> Edit Photo.</h2>
         <EditForm id={id} photoName={photoName} author={author} style={style} price={price} avaiableUnits={avaiableUnits} />
     </main>

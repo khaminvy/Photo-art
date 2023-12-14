@@ -27,9 +27,9 @@ export default async function PhotoDetails({params}) {
     <div className="card mx-auto w-3/5 shadow-md shadow-red-400">
             <div key={photo._id} className="flex h-auto">
                <div className="w-3/5 overflow-hidden rounded shadow">
-               {photo.photoName && <Image
-                      alt={photo.photoName}
-                      src={`/img/${photo.photoName}.jpg`}
+               {photo.photoId && <Image
+                      alt={photo.photo}
+                      src={`/img/${photo.photoId}.jpg`}
                       width={600}
                       height={500}
                   />}
@@ -45,7 +45,7 @@ export default async function PhotoDetails({params}) {
                         </div>
                         <p className="p-2">AvailableUnits:  {photo.avaiableUnits}</p>
                         <div className="flex justify-center">
-                          <RemoveBtn id={photo._id}/>
+                          <RemoveBtn id={photo._id} photoId = {photo.photoId}/>
                           <Link href={`/editPhoto/${id}`} className="p-2 text-red-400">
                             <HiPencilAlt size={24}/>
                           </Link>   

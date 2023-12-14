@@ -42,9 +42,16 @@ export default function CreateForm() {
 
         setIsLoading(true)
 
+        const image = Math.floor(Math.random()*999999);
+        const imageId = "image" + image
+
+
         if(selectedFile){
+
             const formData = new FormData()
-            formData.set('file', selectedFile, `${data.photoName}.jpg`)
+            
+            formData.set('file', selectedFile, `${imageId}.jpg`)
+            
             const res = await fetch('/api/upload', {
                 method: 'POST',
                 body: formData
@@ -55,7 +62,8 @@ export default function CreateForm() {
             }
         }
 
-         const photo = { 
+        const photo = { 
+            photoId: imageId,
             photoName: data.photoName,
             author: data.author,
             style: data.style,
