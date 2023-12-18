@@ -55,7 +55,7 @@ export default function EditForm({id, photoName, author, style, price, avaiableU
                     required: "Photo Name is required."
                 })}
                 onChange={(e)=> setState((prevState)=>{
-                    return {...prevState, author: e.target.value}
+                    return {...prevState, photoName: e.target.value}
                 })}
                 value={state.photoName}
                 autoComplete="off"

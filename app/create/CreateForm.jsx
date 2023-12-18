@@ -7,30 +7,11 @@ import { useForm } from "react-hook-form"
 
 export default function CreateForm() {
     const router = useRouter()
-
     const { register, handleSubmit, formState: {errors, isDirty}}  = useForm({
-        mode: "onBlur",
-        defaultValues: {
-            photoName: "",
-            author: "",
-            style: "photo",
-            price: "0",
-            avaiableUnits: "0",
-            selectedFile: ""
-        }
+        mode: "onBlur", defaultValues: {photoName: "",author: "",style: "photo",price: "0",avaiableUnits: "0",selectedFile: "" }
     })
-
     const [selectedFile, setSelectedFile] = useState("")
-
-
-    const [state, setState] = useState({
-        photoName:"",
-        author: "",
-        style: "",
-        price: "",
-        avaiableUnits: "",
-        selectedFile: ""
-    })
+    const [state, setState] = useState({photoName:"",author: "",style: "",price: "",avaiableUnits: "",selectedFile: ""})
     const [isLoading, setIsLoading ] = useState(false) 
     
     const onError = (errors) => {
@@ -41,46 +22,51 @@ export default function CreateForm() {
     const onSubmit = async (data) => {
 
         setIsLoading(true)
-
         const image = Math.floor(Math.random()*999999);
         const imageId = "image" + image
-
 
         if(selectedFile){
 
             const formData = new FormData()
             
             formData.set('file', selectedFile, `${imageId}.jpg`)
-            
-            const res = await fetch('/api/upload', {
-                method: 'POST',
-                body: formData
-            })
-            if (res.status === 201){
-                router.refresh()
-                router.push('/photos')
-            }
+
+            try {
+                const res = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+
+                if(!res.ok){
+                    return new Error("Unable to upload photo")
+                }
+    
+            } catch (error) {
+                console.log(error)
+            }        
         }
 
-        const photo = { 
-            photoId: imageId,
-            photoName: data.photoName,
-            author: data.author,
-            style: data.style,
-            price: data.price,
+        const photo = {photoId: imageId,photoName: data.photoName,author: data.author,style: data.style, price: data.price,
             avaiableUnits: data.avaiableUnits
         }
 
-        const res = await fetch('http://localhost:3000/api/photos',
+        try {
+            const res = await fetch('http://localhost:3000/api/photos',
             {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(photo)
             }
         )
-        if (res.status === 201){
-            router.push('/photos')
-            router.refresh()
+            if(!res.ok){
+                 return new Error("Unable to post photo's data")
+            }
+            if (res.status === 201){
+                router.push('/photos')
+                router.refresh()
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 

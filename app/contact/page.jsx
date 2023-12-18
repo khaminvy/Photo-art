@@ -50,9 +50,9 @@ export default function Contact() {
   }
 
   return (
-   <main>
+   <main className="drop-shadow-sm">
         <h2 className="text-center">Contact Page</h2>
-        <form className="w-1/2 drop-shadow-lg" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
+        <form className="w-1/2" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
           <label>
             <span>First Name:</span>
             <input 
@@ -98,6 +98,7 @@ export default function Contact() {
               type="email" 
               placeholder="email here."
               {...register("email", {
+                  required: 'Email is required',
                   pattern:{
                     value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
                     message: 'Email is not valid'

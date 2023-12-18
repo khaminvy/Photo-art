@@ -124,7 +124,7 @@ form {
   @apply 
     py-4 px-7 
     bg-primary 
-    bg-opacity-5 
+    bg-opacity-5
     rounded-md 
     block 
     mx-auto 
@@ -149,8 +149,6 @@ form button {
 .error {
   @apply 
     border-none 
-    /* border-red-500 
-    bg-red-300 */
     text-red-800 
     py-1 px-2 
     rounded-sm

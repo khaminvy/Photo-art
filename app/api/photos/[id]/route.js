@@ -6,7 +6,7 @@ export async function PUT(request, {params}){
     const { id } = params
     const { photoName, author, style, price, avaiableUnits } = await request.json()
     await connecMongoDB()
-    await Photo.findByIdAndUpdate(id, { author, style, price, avaiableUnits })
+    await Photo.findByIdAndUpdate(id, { photoName, author, style, price, avaiableUnits })
     return NextResponse.json({message: "Photo updated"}, {status: 201})
 }
 
