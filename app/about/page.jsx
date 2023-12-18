@@ -16,6 +16,13 @@ export default function About() {
                             <div className="card-body text-center py-4">
                                 <h3>Thanh van Pham</h3>
                                 <p className="leading-6">Video Creator</p>
+                                <Image className="w-auto h-auto"
+                                    alt="Image Alt"
+                                    src="/img/thanhv.jpg"
+                                    width={300}
+                                    height={250}
+                                    priority={true}
+                                />
                                 <p className="mx-5 lg:block">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
                                 </p>
@@ -24,7 +31,9 @@ export default function About() {
                     </div>
 
                     <div className="col-span-9 lg:col-span-4 shadow-md">
-                        <div className="card">
+                        <div className="card text-center">
+                            <h3>Phan Le</h3>
+                            <p className="leading-10">Paintings Author</p>
                             <div className="text-center text-primary">Main Character.</div>
                             <div className="text-center py-5">
                             <Image className="w-auto h-auto"
@@ -34,8 +43,6 @@ export default function About() {
                                 height={250}
                                 priority={true}
                             />
-                            <h3>Phan Le</h3>
-                            <p className="leading-10">Paintings Author</p>
                             <p className="mx-5 lg:block">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
                             </p>
@@ -48,6 +55,13 @@ export default function About() {
                             <div className="text-center py-4">
                                 <h3 className="card-title">Duc Tri</h3>
                                 <p className="leading-6">Photographer.</p>
+                                <Image className="w-auto h-auto"
+                                    alt="Image Alt"
+                                    src="/img/thanhv.jpg"
+                                    width={300}
+                                    height={250}
+                                    priority={true}
+                                />
                                 <p className="mx-5 lg:block">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dolorem minus obcaecati mollitia facilis delectus quod pariatur expedita quo similique velit blanditiis molestias et dolores, praesentium commodi dolor doloremque animi.
                                 </p>

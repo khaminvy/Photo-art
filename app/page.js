@@ -18,7 +18,7 @@ export default function Home() {
                 </div>
               </h1>
               <p className="text-center py-4">
-                This is a paragraph.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               </p>
               <div className="text-center py-2">
                 <Link href="/contact" className="btn-primary px-4 py-3">Get Contact</Link>

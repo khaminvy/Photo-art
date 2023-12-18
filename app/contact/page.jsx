@@ -52,7 +52,7 @@ export default function Contact() {
   return (
    <main>
         <h2 className="text-center">Contact Page</h2>
-        <form className="w-1/2" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
+        <form className="w-1/2 drop-shadow-lg" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
           <label>
             <span>First Name:</span>
             <input 
@@ -118,7 +118,7 @@ export default function Contact() {
               type="text" 
               placeholder="Message..."
               cols="30" 
-              rows="10" 
+              rows="5" 
               {...register("message")}
               value={state.message}
                 onChange={(e)=> setState((prevState)=>{
@@ -126,7 +126,7 @@ export default function Contact() {
               })}
             />
           </label>
-          <button type="submit" disabled={isDirty || !isValid} className="btn-secondary">submit</button>
+          <button type="submit" disabled={isDirty || !isValid} className="button btn-primary">submit</button>
         </form>
         {/* <DevTool control={control}/> */}
    </main>
