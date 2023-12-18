@@ -7,11 +7,11 @@ import { useForm } from "react-hook-form"
 export default function EditForm({id, photoName, author, style, price, avaiableUnits}) {
     const router = useRouter()
 
-    const { register, handleSubmit, formState: {errors, isDirty, isValid, isSubmitting}}  = useForm({
+    const { register, handleSubmit, formState: {errors, isDirty}}  = useForm({
         mode: "onBlur"
     })
 
-    const [state, setState] = useState({author, style, price, avaiableUnits})
+    const [state, setState] = useState({photoName, author, style, price, avaiableUnits})
     const [isLoading, setIsLoading ] = useState(false) 
     
     const onError = (errors) => {
@@ -22,29 +22,48 @@ export default function EditForm({id, photoName, author, style, price, avaiableU
     const onSubmit = async (data) => {
 
         setIsLoading(true)
-
-        const photo = { 
-            photoName,
-            author: data.author,
-            style: data.style,
-            price: data.price,
-            avaiableUnits: data.avaiableUnits
-        }
-        const res = await fetch(`http://localhost:3000/api/photos/${id}`,
-            {
+        const photo = {photoName: data.photoName, author: data.author, style: data.style, price: data.price, avaiableUnits: data.avaiableUnits }
+        
+        try {
+            const res = await fetch(`http://localhost:3000/api/photos/${id}`,{
                 method: "PUT",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(photo)
+            })
+            if(!res.ok){
+                return new Error("Unable to update photo")
             }
-        )
-        if(res.status === 201){
-            router.push('/photos')
-            router.refresh()
+
+            if(res.status === 201){
+                router.push('/photos')
+                router.refresh()
+            }
+        } catch (error) {
+            console.log(error)
         }
+        
     }
 
   return (
     <form className="w-1/2" onSubmit={handleSubmit(onSubmit, onError)} noValidate>
+        <label>
+            <span>Name:</span>
+            <input 
+                type="text" 
+                placeholder="Photo Name..."
+                {...register("photoName", {
+                    required: "Photo Name is required."
+                })}
+                onChange={(e)=> setState((prevState)=>{
+                    return {...prevState, author: e.target.value}
+                })}
+                value={state.photoName}
+                autoComplete="off"
+            />
+        </label>
+        {errors?.photoName && (
+            <p className="error">{errors.photoName.message}</p>
+        )}
         <label>
             <span>Author:</span>
             <input 

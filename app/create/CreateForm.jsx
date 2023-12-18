@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 export default function CreateForm() {
     const router = useRouter()
 
-    const { register, handleSubmit, formState: {errors, isDirty, isValid, isSubmitting}}  = useForm({
+    const { register, handleSubmit, formState: {errors, isDirty}}  = useForm({
         mode: "onBlur",
         defaultValues: {
             photoName: "",
