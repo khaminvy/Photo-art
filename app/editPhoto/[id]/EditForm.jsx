@@ -35,7 +35,7 @@ export default function EditForm({id, photoName, author, style, price, avaiableU
             }
 
             if(res.status === 201){
-                router.push('/photos')
+                router.push(`/photos/${id}`)
                 router.refresh()
             }
         } catch (error) {

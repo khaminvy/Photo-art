@@ -20,7 +20,7 @@ export default function About() {
                                     alt="Image Alt"
                                     src="/img/thanhv.jpg"
                                     width={300}
-                                    height={250}
+                                    height={100}
                                     priority={true}
                                 />
                                 <p className="mx-5 lg:block">
@@ -40,7 +40,7 @@ export default function About() {
                                 alt="Image Alt"
                                 src="/img/my-girl.jpg"
                                 width={300}
-                                height={250}
+                                height={350}
                                 priority={true}
                             />
                             <p className="mx-5 lg:block">
@@ -59,7 +59,7 @@ export default function About() {
                                     alt="Image Alt"
                                     src="/img/thanhv.jpg"
                                     width={300}
-                                    height={250}
+                                    height={50}
                                     priority={true}
                                 />
                                 <p className="mx-5 lg:block">

@@ -11,7 +11,7 @@ export default function Home() {
             <div className="w-full text-center md:text-start">
               <h1>
                 <div className="text-8xl font-bold my-10 text-center drop-shadow-lg">
-                   <p>Le Phan.</p>
+                   <p className="">Le Phan.</p>
                 </div>
                 <div className="text-4xl font-semibold text-center">
                    <p>Art Galerry.</p>
@@ -25,13 +25,14 @@ export default function Home() {
               </div>
             </div>
             <div className="text-center hidden md:block 
-                  p-1 bg-slate-50 rounded-md">
+                  px-12 py-10 shadow-lg shadow-slate-100 rounded-md">
               <Image
                   alt="Image Alt"
                   src="/img/my-girl.jpg"
-                  width={900}
-                  height={700}
+                  width={350}
+                  height={200}
                   priority={true}
+                  className="object-contain"
               />
             </div>
           </div>

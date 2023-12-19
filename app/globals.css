@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 body {
-  background: #e9eaec;
-  @apply text-gray-500 m-6;
+  /* background: radial-gradient(circle, rgba(6, 23, 59, 0.2) 0%, #edeeeb 100%); */
+  /* background: radial-gradient(circle, rgb(254, 225, 64, 0.2) 0%, rgba(240, 165, 188, 0.2) 100%); */
+  background: radial-gradient(circle, rgb(254, 225, 64, 0.2) 0%, rgba(4, 130, 240, 0.2) 100%);
+  /* background: #e9eaec; */
+  @apply text-gray-500 m-6 ;
 }
 
 h1, h2 {
