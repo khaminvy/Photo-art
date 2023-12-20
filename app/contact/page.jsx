@@ -11,8 +11,8 @@ export default function Contact() {
   
   const { register, handleSubmit, formState: {errors, isDirty, isValid, isSubmitting}} = useForm({
     defaultValues:{
-      fname: "",
-      lname: "",
+      firstName: "",
+      lastName: "",
       email: "",
       message: ""
     }, 
@@ -20,11 +20,10 @@ export default function Contact() {
   });
 
   let [state, setState] = useState({
-    fname: '',
-    lname: '',
+    firstName: '',
+    lastName: '',
     email: ''
   })
-  // const [isLoading, setIsLoading] = useState(false);
 
   const onError = (errors) => {
     console.log("Form error:", errors)
@@ -34,9 +33,11 @@ export default function Contact() {
   const onSubmit = async (data) => {
 
     let message = {...data};  
-    setState({fname: '', lname: '', email: '', message: '' })  
+    setState({firstName: '', lastName: '', email: '', message: '' })  
 
-    const res = await fetch('http://localhost:4000/message',{
+    console.log(message)
+
+    const res = await fetch('http://localhost:3000/api/messages',{
       method: 'POST',
       headers: { "content-Type": "application/json"},
       body: JSON.stringify(message)
@@ -52,25 +53,25 @@ export default function Contact() {
   return (
    <main className="drop-shadow-sm">
         <h2 className="text-center">Contact Page</h2>
-        <form className="w-1/2" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
+        <form className="w-1/2 text-black" onSubmit={handleSubmit(onSubmit, onError)} noValidate> 
           <label>
             <span>First Name:</span>
             <input 
               type="text"
               placeholder="First Name"
-              {...register("fname", {
+              {...register("firstName", {
                       required: 'First name is required',
                   }
               )}
-              value={state.fname}
+              value={state.firstName}
               autoComplete="off"
               onChange={(e)=> setState((prevState)=>{
-                  return {...prevState, fname: e.target.value}
+                  return {...prevState, firstName: e.target.value}
               })}
             />
           </label>
-          {errors?.fname && (
-            <p className="error">{errors.fname.message}</p>
+          {errors?.firstName && (
+            <p className="error">{errors.firstName.message}</p>
           )}
                             
           <label>
@@ -78,18 +79,18 @@ export default function Contact() {
             <input  
               type="text"
               placeholder="Last Name"
-              {...register("lname", {
+              {...register("lastName", {
                 required: 'Last name is required',
               }
             )}
-            value={state.lname}
+            value={state.lastName}
             autoComplete="off"
             onChange={(e)=> setState((prevState)=>{
-                return {...prevState, lname: e.target.value}
+                return {...prevState, lastName: e.target.value}
             })}
             />
-            {errors?.lname && (
-              <p className="error">{errors.lname.message}</p>
+            {errors?.lastName && (
+              <p className="error">{errors.lastName.message}</p>
             )}
           </label>
           <label>

@@ -26,18 +26,20 @@ export default async function PhotoList() {
   const {photos} = await getPhotos()
   return (
     <main>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-2 rounded-md">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-md text-center">
         {photos.map(photo=>{ 
           return (
             <Link href={`/photos/${photo._id}`} key={photo._id}>
-              <div className="">
-                <div className="relative" style={{width: "300px", height: "400px"}}>
+              <div className="flex justify-center bg-inherit">
+                <div className="relative mx-auto rounded-2xl overflow-hidden">
                   {photo.photoId && <Image
                         alt={photo.photoName}
                         src={`/img/${photo.photoId}.jpg`}
                         sizes="600px"
-                        fill
+                        width={300}
+                        height={200}
                         style={{objectFit: "contain"}}
+                        className="border-4 rounded-2xl"
                     />}
                 </div>
               </div>
@@ -47,4 +49,4 @@ export default async function PhotoList() {
       </div>     
     </main>
   )
-      }
+}

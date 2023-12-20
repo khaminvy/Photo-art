@@ -34,9 +34,8 @@ export default async function PhotoDetails({params}) {
                       height={500}
                   />}
                </div>
-                <div className="w-2/5 flex justify-center items-center px-4 text-center bg-slate-700
-                 font-semibold">
-                    <div>
+                <div className="w-2/5 flex justify-center items-center bg-slate-300">
+                    <div className="px-4 text-center font-extrabold">
                         <h2 className="pb-3">{photo.photoName}</h2>
                         <h3 className="pb-2">{photo.author}</h3>
                         <div className="flex justify-around">

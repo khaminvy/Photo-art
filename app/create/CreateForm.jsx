@@ -71,7 +71,7 @@ export default function CreateForm() {
     }
 
   return (
-    <form className="w-1/2" onSubmit={handleSubmit(onSubmit, onError)} noValidate>
+    <form className="w-1/2 text-black" onSubmit={handleSubmit(onSubmit, onError)} noValidate>
         <label>
             <span>Photo Name:</span>
             <input 

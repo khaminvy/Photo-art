@@ -1,5 +1,5 @@
-import {writeFile} from 'fs/promises'
-import { NextRequest, NextResponse } from 'next/server'
+import { writeFile } from 'fs/promises'
+import { NextResponse } from 'next/server'
 import { join } from 'path'
 
 export async function POST(request) {
@@ -7,7 +7,6 @@ export async function POST(request) {
     const file = data.get('file')
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
-    console.log(file.name)
     const path = join("public/img/",file.name)
     await writeFile(path, buffer)
 

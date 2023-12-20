@@ -21,18 +21,18 @@ export default function Home() {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               </p>
               <div className="text-center py-2">
-                <Link href="/contact" className="btn-primary px-4 py-3">Get Contact</Link>
+                <Link href="/contact" className="btn-primary px-4 py-3 rounded">Get Contact</Link>
               </div>
             </div>
             <div className="text-center hidden md:block 
-                  px-12 py-10 shadow-lg shadow-slate-100 rounded-md">
+                  px-12 py-10 rounded-md">
               <Image
                   alt="Image Alt"
-                  src="/img/my-girl.jpg"
+                  src="/img/impression.jpg"
                   width={350}
                   height={200}
                   priority={true}
-                  className="object-contain"
+                  className="object-contain rounded shadow-md"
               />
             </div>
           </div>

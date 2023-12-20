@@ -14,6 +14,20 @@ const photoSchema = new Schema(
     }
 )
 
+// const contactSchema = new Schema(
+//     {
+//        firstName: String,
+//        lastName: String,
+//        email: String,
+//        message: String
+//     },
+//     {
+//         timestamps: true
+//     }
+// )
+
+//const Contact = mongoose.models.Contact || mongoose.model("Contact", contactSchema)
 const Photo = mongoose.models.Photo || mongoose.model("Photo", photoSchema)
+
 
 export default Photo
