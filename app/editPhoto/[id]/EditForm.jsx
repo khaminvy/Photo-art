@@ -25,7 +25,8 @@ export default function EditForm({id, photoName, author, style, price, avaiableU
         const photo = {photoName: data.photoName, author: data.author, style: data.style, price: data.price, avaiableUnits: data.avaiableUnits }
         
         try {
-            const res = await fetch(`http://localhost:3000/api/photos/${id}`,{
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL
+            const res = await fetch(`${apiUrl}/api/photos/${id}`,{
                 method: "PUT",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(photo)

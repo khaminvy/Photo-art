@@ -30,7 +30,7 @@ export default function Home() {
                   alt="Image Alt"
                   src="/img/impression.jpg"
                   width={350}
-                  height={200}
+                  height={100}
                   priority={true}
                   className="object-contain rounded shadow-md"
               />

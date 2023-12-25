@@ -8,7 +8,8 @@ import Link from "next/link"
 
 async function getPhoto(id){
   await new Promise(resolve => setTimeout(resolve, 3000))
-  const res = await fetch(`http://localhost:3000/api/photos/${id}`, {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL
+  const res = await fetch(`${apiUrl}/api/photos/${id}`, {
       cache: "no-store"
     })
     if(res.status !== 200){

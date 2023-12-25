@@ -51,7 +51,8 @@ export default function CreateForm() {
         }
 
         try {
-            const res = await fetch('http://localhost:3000/api/photos',
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL
+            const res = await fetch(`${apiUrl}/api/photos`,
             {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},

@@ -8,7 +8,8 @@ async function getPhotos(){
   //initate delay
   await new Promise(resolve => setTimeout(resolve, 4000))
   try {
-    const res = await fetch('http://localhost:3000/api/photos', {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    const res = await fetch(`${apiUrl}/api/photos`, {
       next:{
         revalidate: 0
       }
