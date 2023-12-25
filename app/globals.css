@@ -180,3 +180,8 @@ form button {
 .active {
   @apply bg-primary text-slate-50;
 }
+
+.dropdown:focus-within 
+  .dropdown-menu {
+    display: block;
+  }

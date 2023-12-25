@@ -26,7 +26,8 @@ export default async function PhotoList() {
   const {photos} = await getPhotos()
   return (
     <main>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-md text-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-md 
+        text-center bg-orange-300 p-10 drop-shadow-md">
         {photos.map(photo=>{ 
           return (
             <Link href={`/photos/${photo._id}`} key={photo._id}>
