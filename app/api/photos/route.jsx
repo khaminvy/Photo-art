@@ -1,6 +1,6 @@
 import connecMongoDB from "@/app/lib/mongodb";
 import Photo from "@/app/models/model";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest} from "next/server";
 
 
 export async function POST (request){

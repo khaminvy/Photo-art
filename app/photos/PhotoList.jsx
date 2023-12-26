@@ -1,12 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
-
+export const runtime = "edge"
 
 async function getPhotos(){
  
 
   //initate delay
-  await new Promise(resolve => setTimeout(resolve, 4000))
+  //await new Promise(resolve => setTimeout(resolve, 4000))
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL
     const res = await fetch(`${apiUrl}/api/photos`, {
