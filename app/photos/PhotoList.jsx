@@ -6,6 +6,7 @@ async function getPhotos(){
  
 
   //initate delay
+  //
   await new Promise(resolve => setTimeout(resolve, 4000))
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL
