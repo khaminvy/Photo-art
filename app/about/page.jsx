@@ -18,7 +18,7 @@ export default function About() {
                                 <p className="leading-6">Video Creator</p>
                                 <div className="relative mx-auto rounded-2xl overflow-hidden">
                                     <Image
-                                        alt="Image Alt"
+                                        alt="Image Alt1"
                                         src="/img/ThanhP.png"
                                         sizes="600px"
                                         width={300}
@@ -42,14 +42,14 @@ export default function About() {
                             <div className="text-center text-primary">Main Character.</div>
                             <div className="text-center py-5">
                             <div className="relative mx-auto rounded-2xl overflow-hidden">
-                                    <Image
-                                        alt="Image Alt"
-                                        src="/img/Lephan1.jpg"
+                            <Image
+                                        alt="Image Alt1"
+                                        src="/img/ThanhP.png"
                                         sizes="600px"
                                         width={300}
                                         height={200}
                                         style={{objectFit: "contain"}}
-                                        className="border rounded-2xl m-2"
+                                        className="border rounded-full"
                                 />
                             </div>
                             <p className="mx-5 lg:block">
@@ -66,7 +66,7 @@ export default function About() {
                                 <p className="leading-6">Photographer.</p>
                                 <div className="relative rounded-2xl overflow-hidden">
                                     <Image
-                                        alt="Image Alt"
+                                        alt="Image Alt2"
                                         src="/img/Ductri.png"
                                         sizes="600px"
                                         width={300}
