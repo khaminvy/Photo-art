@@ -1,6 +1,7 @@
+export const dynamicParams = true
+
 import Image from "next/image"
 import { notFound } from "next/navigation"
-export const dynamicParams = true
 import {HiPencilAlt} from "react-icons/hi"
 import RemoveBtn from "@/app/components/removeBtn"
 import Link from "next/link"

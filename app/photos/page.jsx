@@ -1,3 +1,5 @@
+export const dynamicParams = true
+
 import Loading from '../loading'
 import PhotoList from './PhotoList'
 import { Suspense } from 'react'

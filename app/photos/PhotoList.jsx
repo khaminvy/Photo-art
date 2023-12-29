@@ -1,29 +1,27 @@
+export const dynamicParams = true
+import connecMongoDB from "@/app/lib/mongodb";
+import Photo from "@/app/models/model";
 import Image from "next/image"
 import Link from "next/link"
-export const runtime = "edge"
+
 
 async function getPhotos(){
- 
-
-  //initate delay
-  
+  //initate delay 
   await new Promise(resolve => setTimeout(resolve, 4000))
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL
-    const res = await fetch(`${apiUrl}/api/photos`, {
-      next:{
-        revalidate: 0
-      }
-    })
-    if(!res.ok){
+    await connecMongoDB()
+    const photos = await Photo.find({})
+    
+    if(!photos){
       throw new Error("Failed to fecth Photos")
     }
-
-    return res.json()
-  } catch (error) {
-    console.log("Error loading photos", error)
-  }
+    return photos
+   } catch (error) {
+     console.log("Error loading photos", error)
+   }
 } 
+
 export default async function PhotoList() {
   const photos = await getPhotos()
   return (
