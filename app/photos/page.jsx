@@ -1,10 +1,9 @@
-export const dynamicParams = true
 
 import Loading from '../loading'
 import PhotoList from './PhotoList'
 import { Suspense } from 'react'
 
-export default function Photos() {
+export default function Photos({photos}) {
   return (
     <main>
         <nav> 
@@ -12,7 +11,7 @@ export default function Photos() {
           <p><small>currently open photos</small></p>
         </nav>
         <Suspense fallback={<Loading />}>
-          <PhotoList />
+          <PhotoList photos={photos}/>
         </Suspense>
     </main>
   )

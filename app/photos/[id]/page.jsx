@@ -24,7 +24,6 @@ export default async function PhotoDetails({params}) {
   const id = params.id
   const {photo} = await getPhoto(id)
 
-
   return (
     <div className="card mx-auto w-3/5 shadow-md shadow-red-400">
             <div key={photo._id} className="flex h-auto">

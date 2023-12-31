@@ -1,29 +1,29 @@
-export const dynamicParams = true
 import connecMongoDB from "@/app/lib/mongodb";
 import Photo from "@/app/models/model";
 import Image from "next/image"
 import Link from "next/link"
 
 
+import { readdir } from 'fs/promises'
+import { join } from "path"
+
 async function getPhotos(){
-  //initate delay 
-  await new Promise(resolve => setTimeout(resolve, 4000))
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
-    await connecMongoDB()
-    const photos = await Photo.find({})
-    
-    if(!photos){
-      throw new Error("Failed to fecth Photos")
+  await new Promise(resolve => setTimeout(resolve, 3000))
+ 
+   const apiUrl = process.env.NEXT_PUBLIC_API_URL
+   const res = await fetch(`${apiUrl}/api/photos`, {
+       next:{ revalidate: 0 }
+   })
+    if(res.status !== 200){
+      notFound()
     }
-    return photos
-   } catch (error) {
-     console.log("Error loading photos", error)
-   }
+    const data = await res.json()
+    return data
+
 } 
 
 export default async function PhotoList() {
-  const photos = await getPhotos()
+  let {photos} = await getPhotos()
   return (
     <main>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-md 
@@ -33,7 +33,7 @@ export default async function PhotoList() {
             <Link href={`/photos/${photo._id}`} key={photo._id}>
               <div className="flex justify-center bg-inherit">
                 <div className="relative mx-auto rounded-2xl overflow-hidden">
-                  {photo.photoId && <Image
+                {photo.photoId && <Image
                         alt={photo.photoName}
                         src={`/img/${photo.photoId}.jpg`}
                         sizes="600px"

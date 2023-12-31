@@ -44,7 +44,7 @@ export default function About() {
                             <div className="relative mx-auto rounded-2xl overflow-hidden">
                             <Image
                                         alt="Image Alt1"
-                                        src="/img/ThanhP.png"
+                                        src="/img/LePhan.jpg"
                                         sizes="600px"
                                         width={300}
                                         height={200}

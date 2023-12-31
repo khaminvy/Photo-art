@@ -6,10 +6,11 @@ export default function RemoveBtn({id, photoId}) {
   const router = useRouter()
 
   const removePhoto = async () => {
-    const confirmed = confirm("Are you sure?")
+    //const confirmed = confirm("Are you sure?")
 
-    if(confirmed){
-      const res = await fetch(`http://localhost:3000/api/photos?id=${id}`, {
+    //if(confirmed){
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL
+      const res = await fetch(`/api/photos?id=${id}`, {
         method: "DELETE"
       })
 
@@ -18,8 +19,8 @@ export default function RemoveBtn({id, photoId}) {
         const formData = new FormData()
             
         formData.set('filename',`${photoId}.jpg`)
-            
-        const res = await fetch('/api/delete', {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL
+        const res = await fetch(`/api/delete`, {
             method: 'DELETE',
             body: formData
         })
@@ -34,7 +35,7 @@ export default function RemoveBtn({id, photoId}) {
         router.push('/photos')
         router.refresh()
       }
-    }
+    //}
   }
   return (
     <button onClick={removePhoto}  className="text-red-400">

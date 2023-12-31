@@ -32,7 +32,8 @@ export default function CreateForm() {
             formData.set('file', selectedFile, `${imageId}.jpg`)
 
             try {
-                const res = await fetch('/api/upload', {
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL
+                const res = await fetch(`/api/upload`, {
                     method: 'POST',
                     body: formData
                 })
@@ -52,7 +53,7 @@ export default function CreateForm() {
 
         try {
             const apiUrl = process.env.NEXT_PUBLIC_API_URL
-            const res = await fetch(`${apiUrl}/api/photos`,
+            const res = await fetch(`/api/photos`,
             {
                 method: "POST",
                 headers: {"Content-Type":"application/json"},
@@ -63,7 +64,7 @@ export default function CreateForm() {
                  return new Error("Unable to post photo's data")
             }
             if (res.status === 201){
-                router.push('/photos')
+                router.push('/')
                 router.refresh()
             }
         } catch (error) {
